@@ -4,7 +4,7 @@ var sea,seaImg;
 function preload()
 {
   seaImg = loadImage("sea.png");
-  shipImg1 = loadAnimation("ship-1.png, ship-2.png, ship-3.png, ship-4.png");
+  shipImg1 = loadAnimation("ship-1.png", "ship-2.png", "ship-3.png", "ship-4.png");
 }
 
 function setup(){
@@ -12,7 +12,7 @@ function setup(){
 
   //creating ship 
   ship = createSprite(50,150,20,50);
-  ship.addAnimation("moving", seaImg1);
+  ship.addAnimation("moving", seaImg);
   edge = createEdgeSprites();
 
   //scaling the ship
@@ -27,7 +27,7 @@ function setup(){
 
 function draw() {
   background("blue");
-  drawSpites();
+  drawSprites();
   if(keyDown("space")){
     ship.velocityY = -10;
   }
@@ -36,7 +36,7 @@ function draw() {
 
   console.log(ship.x);
 
-  trex.collide(sea);
+  ship.collide(sea);
 
   if (sea.x < 0)
   {
